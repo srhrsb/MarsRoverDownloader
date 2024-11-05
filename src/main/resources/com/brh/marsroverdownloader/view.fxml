@@ -15,7 +15,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="679.0" prefWidth="323.0">
                <children>
                   <DatePicker layoutX="7.0" layoutY="10.0" />
-                  <TableView layoutX="7.0" layoutY="48.0" prefHeight="577.0" prefWidth="487.0">
+                  <TableView layoutX="7.0" layoutY="48.0" prefHeight="556.0" prefWidth="487.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
@@ -24,6 +24,7 @@
                   <Button layoutX="7.0" layoutY="640.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Bild Runterladen" />
                   <Button layoutX="128.0" layoutY="640.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Alle Runterladen" />
                   <Button layoutX="251.0" layoutY="641.0" mnemonicParsing="false" onAction="#searchTargetFolder" prefHeight="26.0" prefWidth="244.0" text="Zielordner Auswählen" />
+                  <Label fx:id="targetFolder" layoutX="251.0" layoutY="615.0" prefHeight="18.0" prefWidth="244.0" text="Download Zielordner" />
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
