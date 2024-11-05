@@ -1,5 +1,6 @@
 package com.brh.marsroverdownloader;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -8,7 +9,9 @@ public class Controller {
     private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void searchTargetFolder( Event ev ) {
+        System.out.println( ev.getEventType() );
     }
+
+
 }
