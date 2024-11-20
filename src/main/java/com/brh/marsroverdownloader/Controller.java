@@ -8,8 +8,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.time.LocalDate;
-import java.util.function.Consumer;
+import java.util.ArrayList;
 
 public class Controller {
     @FXML
@@ -34,7 +33,7 @@ public class Controller {
         request.getRoverImageByDate( datePicker.getValue(), this::handleRoverImages );
     }
 
-    public void handleRoverImages( APIResponse response ){
+    public void handleRoverImages(ArrayList<MarsRoverImage> response ){
 
     }
 

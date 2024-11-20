@@ -1,9 +1,8 @@
 package com.brh.marsroverdownloader;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-public class APIResponse {
+public class MarsRoverImage {
 
     private LocalDate date;
     private String imgURL;

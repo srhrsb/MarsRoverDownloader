@@ -5,16 +5,16 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class APIRequest {
 
-       private Consumer<APIResponse> onSuccessCallback;
+       private Consumer< ArrayList<MarsRoverImage> > onSuccessCallback;
        private final String apiKey = "FDhYDjlm3UIpxzK5oH2XNcZui09r46v7DRn1spIY";
 
-       public void getRoverImageByDate(LocalDate date, Consumer<APIResponse> onSuccessCallback ){
+       public void getRoverImageByDate(LocalDate date, Consumer< ArrayList<MarsRoverImage> > onSuccessCallback ){
            this.onSuccessCallback = onSuccessCallback;
            sendRequest(date);
 
