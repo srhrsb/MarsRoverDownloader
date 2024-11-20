@@ -5,6 +5,7 @@ module com.brh.marsroverdownloader {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.net.http;
 
     opens com.brh.marsroverdownloader to javafx.fxml;
     exports com.brh.marsroverdownloader;
