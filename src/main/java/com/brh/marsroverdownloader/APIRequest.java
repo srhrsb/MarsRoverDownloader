@@ -20,20 +20,24 @@ public class APIRequest {
 
        }
 
-       private void sendRequest( LocalDate date ){
-           String urlString ="https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=";
-                  urlString+=date.toString()+"&api_key="+apiKey;
+    private void sendRequest( LocalDate date ){
+        String urlString ="https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=";
+        urlString+=date.toString()+"&api_key="+apiKey;
 
-           try{
-               HttpClient client = HttpClient.newHttpClient();
-               HttpRequest request = HttpRequest.newBuilder(URI.create(urlString)).build();
-               CompletableFuture< HttpResponse<String> > future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-               future.thenAccept(this::handleApiResponse );
-           }
-           catch(Exception e){
-               throw new RuntimeException(e);
-           }
-       }
+        try{
+            CompletableFuture<HttpResponse<String>> future;
+
+            try( HttpClient client = HttpClient.newHttpClient() ){
+                HttpRequest request = HttpRequest.newBuilder(URI.create(urlString)).build();
+                future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+            }
+
+            future.thenAccept(this::handleApiResponse );
+        }
+        catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 
        private void handleApiResponse( HttpResponse<String> response ){
            if(response.statusCode()==200) {
