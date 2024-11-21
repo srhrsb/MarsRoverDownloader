@@ -8,6 +8,22 @@ public class MarsRoverImage {
     private String imgURL;
     private String cameraName;
 
+    private int downloadProgress;
+
+    public MarsRoverImage(LocalDate date, String imgURL, String cameraName) {
+        this.date = date;
+        this.imgURL = imgURL;
+        this.cameraName = cameraName;
+    }
+
+    public int getDownloadProgress() {
+        return downloadProgress;
+    }
+
+    public void setDownloadProgress(int downloadProgress) {
+        this.downloadProgress = downloadProgress;
+    }
+
     public LocalDate getDate() {
         return date;
     }
