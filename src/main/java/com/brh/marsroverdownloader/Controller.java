@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -38,6 +40,8 @@ public class Controller {
 
     private ObservableList<MarsRoverImage> imageList  = FXCollections.observableArrayList();
 
+    @FXML
+    private ImageView imageView;
 
    @FXML
     public void initialize(){
@@ -91,6 +95,16 @@ public class Controller {
         tableView.setItems( imageList );
         tableView.refresh();
 
+    }
+
+    public void tableClicked( Event event ){
+        System.out.println(event.getTarget().toString());
+
+       int tableRow = tableView.getFocusModel().getFocusedIndex();
+       String url = imageList.get(tableRow).getImgURL().replace("http://", "https://");
+
+       Image image = new Image(url);
+       imageView.setImage(image);
     }
 
 }

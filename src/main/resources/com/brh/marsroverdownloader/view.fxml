@@ -15,7 +15,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="679.0" prefWidth="323.0">
                <children>
                   <DatePicker fx:id="datePicker" layoutX="7.0" layoutY="10.0" />
-                  <TableView fx:id="tableView" layoutX="7.0" layoutY="48.0" prefHeight="556.0" prefWidth="487.0">
+                  <TableView fx:id="tableView" layoutX="7.0" layoutY="48.0" onMouseClicked="#tableClicked" prefHeight="556.0" prefWidth="487.0">
                     <columns>
                       <TableColumn fx:id="dateCol" prefWidth="75.0" text="Datum" />
                       <TableColumn fx:id="cameraCol" prefWidth="75.0" text="Kamera" />
@@ -31,7 +31,7 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="512.0" fitWidth="512.0" layoutX="14.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-border-width: 4; -fx-border-style: solid;" />
+                  <ImageView fx:id="imageView" fitHeight="512.0" fitWidth="512.0" layoutX="14.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-border-width: 4; -fx-border-style: solid;" />
                </children></AnchorPane>
         </items>
       </SplitPane>
