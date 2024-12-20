@@ -67,14 +67,12 @@ public class APIRequest {
 
            //ist der Response erfolgreich?
            if(response.statusCode()==200) {
-
                System.out.println(response.body());
                var imageList = parseJson( response.body() );
 
                //Consumer ausgelöst durch accept -> Daten sind da
                //und werden an die Callback-Methode geschickt
                onSuccessCallback.accept( imageList );
-
            }
            else{
                System.err.println("API response failed");
@@ -95,9 +93,10 @@ public class APIRequest {
 
                //durch das "photos"-Array itterieren
                for( var item : photos){
-
-                   JSONObject photo = (JSONObject) item; //Objekt Photo
-                   JSONObject camera = (JSONObject) photo.get("camera"); //Objekt Camera
+                   //Objekt Photo
+                   JSONObject photo = (JSONObject) item;
+                   //Objekt Camera
+                   JSONObject camera = (JSONObject) photo.get("camera");
 
                    //Daten holen
                    String url = photo.get("img_src").toString();
@@ -116,12 +115,4 @@ public class APIRequest {
            }
             return imageList;
        }
-
-
-
-
-
-
-
-
 }

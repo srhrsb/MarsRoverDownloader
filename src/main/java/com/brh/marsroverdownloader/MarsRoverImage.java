@@ -47,4 +47,6 @@ public class MarsRoverImage {
     public void setCameraName(String cameraName) {
         this.cameraName = cameraName;
     }
+
+
 }

@@ -82,29 +82,50 @@ public class Controller {
     }
 
     public void handleRoverImages(ArrayList<MarsRoverImage> response ){
-
-        for(var photo : response){
-//            System.out.println( "URL: "+ photo.getImgURL() );
-//            System.out.println( "Camera: "+ photo.getCameraName() );
-//            System.out.println( "Date: "+ photo.getDate() );
-//
-            imageList.add(photo);
-        }
-
-
+        imageList.addAll(response);
         tableView.setItems( imageList );
         tableView.refresh();
-
     }
 
+    /**
+     * Tabelle wurde angeklickt
+     * @param event Event
+     */
     public void tableClicked( Event event ){
         System.out.println(event.getTarget().toString());
-
-       int tableRow = tableView.getFocusModel().getFocusedIndex();
-       String url = imageList.get(tableRow).getImgURL().replace("http://", "https://");
-
-       Image image = new Image(url);
+       Image image = new Image( getFocusedUrl() );
        imageView.setImage(image);
     }
 
+
+    @FXML
+    protected void downloadSingleImage(){
+        int tableIndex = getActiveIndex();
+        download( tableIndex, targetFolder.getText(), this::updateBytes);
+    }
+
+    private void download( int tableIndex, String target, Action<Integer,Integer> progressCallback){
+        String url = getUrlByTableIndex(tableIndex);
+        new Thread( new Download( url, target, tableIndex, progressCallback ) ).start();
+    }
+
+    private String getFocusedUrl(){
+        int tableRow = tableView.getFocusModel().getFocusedIndex();
+        return imageList.get(tableRow).getImgURL().replace("http://", "https://");
+    }
+
+    private int getActiveIndex(){
+        return tableView.getSelectionModel().getFocusedIndex();
+    }
+
+    private String getUrlByTableIndex(int index){
+        return imageList.get(index).getImgURL().replace("http://", "https://");
+    }
+
+    private void updateBytes( int index, int bytes) {
+        var imageItem = imageList.get(index);
+        imageItem.setDownloadProgress( bytes);
+        tableView.setItems( imageList );
+        tableView.refresh();
+    }
 }
