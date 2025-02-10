@@ -24,7 +24,7 @@
                     </columns>
                   </TableView>
                   <Button layoutX="7.0" layoutY="640.0" mnemonicParsing="false" onAction="#downloadSingleImage" prefHeight="26.0" prefWidth="140.0" text="Bild Runterladen" />
-                  <Button layoutX="155.0" layoutY="641.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Alle Runterladen" />
+                  <Button layoutX="155.0" layoutY="641.0" mnemonicParsing="false" onAction="#downloadAllImages" prefHeight="26.0" prefWidth="107.0" text="Alle Runterladen" />
                   <Button layoutX="269.0" layoutY="641.0" mnemonicParsing="false" onAction="#searchTargetFolder" prefHeight="26.0" prefWidth="226.0" text="Zielordner Auswählen" />
                   <Label fx:id="targetFolder" layoutX="269.0" layoutY="615.0" prefHeight="18.0" prefWidth="226.0" text="Download Zielordner" />
                   <Button layoutX="209.0" layoutY="10.0" mnemonicParsing="false" onAction="#getImageFromAPI" text="Rover Bilder suchen" />

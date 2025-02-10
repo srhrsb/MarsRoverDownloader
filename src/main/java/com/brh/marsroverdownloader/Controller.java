@@ -104,6 +104,14 @@ public class Controller {
         download( tableIndex, targetFolder.getText(), this::updateBytes);
     }
 
+
+    @FXML
+    protected void downloadAllImages(){
+        for(int i = 0; i < imageList.size(); i++){
+            download( i, targetFolder.getText(), this::updateBytes);
+        }
+    }
+
     private void download( int tableIndex, String target, Action<Integer,Integer> progressCallback){
         String url = getUrlByTableIndex(tableIndex);
         new Thread( new Download( url, target, tableIndex, progressCallback ) ).start();
