@@ -63,21 +63,21 @@ public class APIRequest {
         }
     }
 
-       private void handleApiResponse( HttpResponse<String> response ){
+    private void handleApiResponse( HttpResponse<String> response ){
 
-           //ist der Response erfolgreich?
-           if(response.statusCode()==200) {
-               System.out.println(response.body());
-               var imageList = parseJson( response.body() );
+       //ist der Response erfolgreich?
+       if(response.statusCode()==200) {
+           System.out.println(response.body());
+           var imageList = parseJson( response.body() );
 
-               //Consumer ausgelöst durch accept -> Daten sind da
-               //und werden an die Callback-Methode geschickt
-               onSuccessCallback.accept( imageList );
-           }
-           else{
-               System.err.println("API response failed");
-           }
+           //Consumer ausgelöst durch accept -> Daten sind da
+           //und werden an die Callback-Methode geschickt
+           onSuccessCallback.accept( imageList );
        }
+       else{
+           System.err.println("API response failed");
+       }
+    }
 
        private ArrayList<MarsRoverImage> parseJson( String json ){
 

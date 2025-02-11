@@ -104,7 +104,6 @@ public class Controller {
         download( tableIndex, targetFolder.getText(), this::updateBytes);
     }
 
-
     @FXML
     protected void downloadAllImages(){
         for(int i = 0; i < imageList.size(); i++){
